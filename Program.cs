@@ -9,7 +9,7 @@ namespace ConsoleApp2
 {
     class Program
     {
-        public static Random rnd = new Random();
+        static Random rnd = new Random();
 
         static void SurfingThread()
         {
@@ -33,14 +33,14 @@ namespace ConsoleApp2
                 if(Thread_Count < 50)
                 {
                     new Thread(() => SurfingThread()).Start();
-                    System.Threading.Thread.Sleep(1000);
                 }
+                System.Threading.Thread.Sleep(1000);
             }
         }
 
         static int thread_cnt = 0;
         static readonly object o_thread_cnt = new object();
-        public static int Thread_Count
+        static int Thread_Count
         {
             get
             {
@@ -59,7 +59,7 @@ namespace ConsoleApp2
         }
     }
 
-    class Browser
+    public class Browser
     {
         IWebDriver webDriver;
 
